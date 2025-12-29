@@ -1,0 +1,116 @@
+* { box-sizing: border-box; font-family: "Noto Serif TC", serif; }
+body {
+  background: #f5f2ee;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#app { width: 100%; max-width: 420px; padding: 24px; position: relative; }
+
+.page {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: center;
+  transform: translateY(16px);
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  transform: translateY(0);
+}
+
+h1, h2 { color: #4a4a4a; }
+.desc { color: #777; line-height: 1.6; margin-bottom: 32px; }
+
+h1#startTitle {
+  white-space: nowrap;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+button {
+  background: #8fa8a1; /* 療癒灰綠色 */
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover { opacity: 0.9; }
+
+/* 問題選項淡入 + 浮動動畫 */
+#options button {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  opacity: 0;
+}
+
+#options button.show {
+  animation: floatIn 0.6s forwards;
+}
+
+@keyframes floatIn {
+  0% { opacity: 0; transform: translateY(12px); }
+  50% { transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 結果頁柔霧背景 */
+#resultPage {
+  background: rgba(245,242,238,0.7);
+  backdrop-filter: blur(8px);
+  padding: 12px; /* 減少 padding 讓圖片更大 */
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 隱藏結果頁標題文字 */
+#resultPage h2 {
+  display: none;
+}
+
+#resultImg {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  border-radius: 16px;
+  margin: 12px 0;
+}
+
+@media (max-width: 480px) {
+  #resultImg {
+    width: 100vw;
+    height: auto;
+    border-radius: 0;
+  }
+}
+
+/* 音樂按鈕 */
+#musicBtn {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #8fa8a1;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#musicBtn:hover { opacity: 0.9; }
