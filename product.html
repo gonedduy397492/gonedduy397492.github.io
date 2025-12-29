@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>香氛與價格一覽</title>
+<style>
+* { box-sizing: border-box; }
+
+/* 封面整體區塊 */
+#cover {
+  padding: 20px 16px;
+  background: #fafafa;
+}
+
+/* 主標題區塊 */
+.cover-title-block {
+  margin-bottom: 16px; /* 與副標題保持間距 */
+}
+
+.cover-title {
+  font-size: 20px; /* 手機版適中大小 */
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+  color: #333;
+}
+
+/* 副標題區塊 */
+.cover-subtitle-block {
+  padding: 12px 16px;
+  margin-bottom: 16px; /* 與運費區塊間距 */
+  border-left: none;   /* 移除任何左側線 */
+  border-radius: 6px;
+  line-height: 1.5;
+  font-size: 14px;
+  text-align: center;
+  color: #5C4B3C;
+}
+
+.cover-subtitle-block strong {
+  font-weight: 700; /* 強調粗體字 */
+}
+
+/* 免運說明區塊 */
+.shipping-notice {
+  background: #f7f3ef;           /* 淺米色，與你整體自然風格一致 */
+  border-radius: 16px;
+  padding: 20px 16px;
+  margin: 32px 0 40px;           /* 與上下內容拉開距離 */
+  text-align: center;
+}
+
+/* 主句：免運 */
+.shipping-main {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b3b33;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+
+/* 次句：運費說明 */
+.shipping-sub {
+  font-size: 13px;
+  color: #8a7a6f;
+  margin: 0;
+}
+
+/* 香氣導覽整體 */
+.scent-guide {
+  text-align: center;
+  margin: 20px 0 0px;
+}
+
+/* 主標題：選擇你的香氣風格 */
+.scent-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #4b3b33;
+  margin: 0 0 4px;
+  letter-spacing: 1px;
+}
+
+/* 提示文字 */
+.scent-hint {
+  font-size: 12px;
+  color: #9a8b80;
+  margin: 0;
+  letter-spacing: 0.5px;   /* 增加呼吸感 */
+}
+
+/* 按鈕區 */
+.scent-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.scent-group:first-child {
+  margin-top: 32px;   /* ← 關鍵：提示文字與花香系的距離 */
+}
+
+.scent-group {
+  text-align: center;
+}
+
+.scent-group h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #5C4B3C;
+  margin-bottom: 0 0 10px;
+}
+
+.scent-group button {
+  margin: 4px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background: #FFE9D6;
+  color: #5C4B3C;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.scent-group button:hover {
+  background: #FFD8B5;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC",
+               "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.scent {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 16px;
+  margin-bottom: 24px;
+}
+
+.scent-name {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.product-images {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.product-item {
+  flex: 1;
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.product-price {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+.scent-info {
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  background: #FFF4E6;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #5C4B3C;
+}
+
+.scent-info p {
+  margin: 6px 0;
+}
+
+
+.product-info h4 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.product-item-info {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+}
+
+.product-item-info p {
+  margin: 6px 0;
+}
+
+.scent-info p {
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+.gift-guide {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #f3f3f3;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.offer {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+.offer h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.offer p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.offer small {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.top-back-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background: #FFE9D6;
+  color: #5C4B3C;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.top-back-button:hover {
+  background: #FFD8B5;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background: #FFE9D6;
+  color: #5C4B3C;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background: #FFD8B5;
+}
+
+@media (min-width: 768px) {
+  #cover {
+    padding: 60px 40px;
+  }
+  .cover-title {
+    font-size: 28px;  /* 平板或桌面版可加大 */
+  }
+  .cover-subtitle {
+    font-size: 16px;
+  }
+
+  .scent-group h3 {
+    font-size: 18px;
+  }
+  .scent-group button {
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+
+  body {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 封面 -->
+<section id="cover">
+  <!-- 主標題區塊 -->
+  <div class="cover-title-block">
+    <h1 class="cover-title">以自然香氣，陪伴每一個生活時刻</h1>
+  </div>
+
+  <!-- 副標題區塊 -->
+  <div class="cover-subtitle-block">
+    全系列皆使用 <strong>植物蠟 × 純精油</strong><br>
+    天然成分溫和不刺激<br>
+    讓香氣回歸自然本質<br>
+    為人與自然保留一份安心的平衡
+  </div>
+
+<section class="shipping-notice">
+  <p class="shipping-main">全品項滿 NT$990 超商取貨免運</p>
+  <p class="shipping-sub">未達門檻酌收運費 NT$60</p>
+</section>
+
+  <div class="scent-buttons">
+
+  <div class="scent-guide">
+  <h2 class="scent-title">選擇你的香氣風格</h2>
+  <p class="scent-hint">請點擊下方按鈕開始探索</p>
+  <div>
+  
+    <div class="scent-group">
+      <h3>花香系</h3>
+      <button onclick="showProduct('bloom')">綻放</button>
+      <button onclick="showProduct('rose')">玫瑰森林</button>
+    </div>
+
+    <div class="scent-group">
+      <h3>療癒系</h3>
+      <button onclick="showProduct('blessings')">大吉大利</button>
+      <button onclick="showProduct('moon')">月光城堡</button>
+    </div>
+
+    <div class="scent-group">
+      <h3>木質系</h3>
+      <button onclick="showProduct('grounded')">日出森林</button>
+      <button onclick="showProduct('beyond')">無界</button>
+      <button onclick="showProduct('ocean')">湛藍海洋</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- 綻放 -->
+<section id="bloom" class="product-page" style="display:none">
+  <div class="scent">
+  <button class="top-back-button" onclick="showCover()">返回封面</button>
+
+  <h1 class="scent-name">綻放</h1>
+  <div class="product-images">
+    <div class="product-item">
+      <img src="images/bloom-candle.png" alt="綻放 香氛蠟燭">
+      <div class="product-price">香氛蠟燭 NT$580</div>
+    </div>
+    <div class="product-item">
+      <img src="images/bloom-oil.png" alt="綻放 香氛精油">
+      <div class="product-price">香氛精油 NT$280</div>
+    </div>
+  </div>
+
+  <div class="scent-info">
+    <p><strong>主調｜</strong>玫瑰、天竺葵</p>
+    <p><strong>香氛感受｜</strong>溫柔卻不甜膩的花香，像慢慢打開的花瓣，不知不覺心變得柔軟而穩定</p>
+    <p><strong>適合時刻｜</strong>需要安定情緒，想被溫柔對待的時刻</p>
+  </div>
+
+  <div class="product-info">
+  <h4>產品資訊</h4>
+
+  <div class="product-item-info">
+    <p><strong>香氛蠟燭</strong><br>
+    • 淨重｜145g （±5g）<br>
+    • 燃燒時間｜約 28-30 小時<br>
+    • 容器｜琥珀玻璃杯＋原木蓋</p>
+  </div>
+
+  <div class="product-item-info">
+    <p><strong>精油</strong><br>
+    • 淨重｜5mL<br>
+    • 使用次數｜約 30-50 次<br>
+    • 容器｜琥珀玻璃瓶</p>
+  </div>
+  </div>
+
+  <div class="gift-guide">
+    <strong>送禮方向｜</strong>送媽媽準沒錯，溫柔又安心的花香選擇
+  </div>
+
+  <div class="offer">
+    <h3>香氛搭配組合</h3>
+    <p><strong>加購限定｜</strong>購買任一款香氛蠟燭，加購任一款精油，可折抵 NT$50</p>
+    <p><strong>精油探索組｜</strong>精油任選 3 款，現折 NT$50</p>
+    <small>
+      *每筆訂單優惠擇一使用，限用一次，不與其他優惠併用<br>
+      *下單時只需於 LINE 對話中留言商品組合（例如：綻放蠟燭 1 個＋日出森林精油 1 個），系統將自動帶入符合之優惠折扣
+    </small>
+  </div>
+  <button class="back-button" onclick="showCover()">返回封面</button>
+</section>
+
+<!-- 玫瑰森林 -->
+<section id="rose" class="product-page" style="display:none">
+  <div class="scent">
+  <button class="top-back-button" onclick="showCover()">返回封面</button>
+
+  <h1 class="scent-name">玫瑰森林</h1>
+  <div class="product-images">
+    <div class="product-item">
+      <img src="images/rose-candle.png" alt="玫瑰森林 香氛蠟燭">
+      <div class="product-price">香氛蠟燭 NT$580</div>
+    </div>
+    <div class="product-item">
+      <img src="images/rose-oil.png" alt="玫瑰森林 香氛精油">
+      <div class="product-price">香氛精油 NT$280</div>
+    </div>
+  </div>
+
+  <div class="scent-info">
+    <p><strong>主調｜</strong>玫瑰、雪松</p>
+    <p><strong>香氛感受｜</strong>濃烈盛放的玫瑰，被溫潤而堅定的木質包覆，是一種自信與優雅的存在</p>
+    <p><strong>適合時刻｜</strong>整合自我狀態，回到內在力量</p>
+  </div>
+
+  <div class="product-info">
+  <h4>產品資訊</h4>
+
+  <div class="product-item-info">
+    <p><strong>香氛蠟燭</strong><br>
+    • 淨重｜145g （±5g）<br>
+    • 燃燒時間｜約 28-30 小時<br>
+    • 容器｜琥珀玻璃杯＋原木蓋</p>
+  </div>
+
+  <div class="product-item-info">
+    <p><strong>精油</strong><br>
+    • 淨重｜5mL<br>
+    • 使用次數｜約 30-50 次<br>
+    • 容器｜琥珀玻璃瓶</p>
+  </div>
+  </div>
+
+  <div class="gift-guide">
+    <strong>送禮方向｜</strong>玫瑰控必買，送給懂香氣細節的人
+  </div>
+
+  <div class="offer">
+    <h3>香氛搭配組合</h3>
+    <p><strong>加購限定｜</strong>購買任一款香氛蠟燭，加購任一款精油，可折抵 NT$50</p>
+    <p><strong>精油探索組｜</strong>精油任選 3 款，現折 NT$50</p>
+    <small>
+      *每筆訂單優惠擇一使用，限用一次，不與其他優惠併用<br>
+      *下單時只需於 LINE 對話中留言商品組合（例如：綻放蠟燭 1 個＋日出森林精油 1 個），系統將自動帶入符合之優惠折扣
+    </small>
+  </div>
+  <button class="back-button" onclick="showCover()">返回封面</button>
+</section>
+
+<!-- 大吉大利 -->
+<section id="blessings" class="product-page" style="display:none">
+  <div class="scent">
+  <button class="top-back-button" onclick="showCover()">返回封面</button>
+
+  <h1 class="scent-name">大吉大利</h1>
+  <div class="product-images">
+    <div class="product-item">
+      <img src="images/blessings-candle.png" alt="大吉大利 香氛蠟燭">
+      <div class="product-price">香氛蠟燭 NT$520</div>
+    </div>
+    <div class="product-item">
+      <img src="images/blessings-oil.png" alt="大吉大利 香氛精油">
+      <div class="product-price">香氛精油 NT$250</div>
+    </div>
+  </div>
+
+  <div class="scent-info">
+    <p><strong>主調｜</strong>甜橙、洋甘菊</p>
+    <p><strong>香氛感受｜</strong>陽光般明亮的甜橙，搭配洋甘菊的溫和安定，打造愉悅、充滿祝福感的空間</p>
+    <p><strong>適合時刻｜</strong>傳遞真誠的祝福、歡樂聚會，或提振情緒的時刻</p>
+  </div>
+
+  <div class="product-info">
+  <h4>產品資訊</h4>
+
+  <div class="product-item-info">
+    <p><strong>香氛蠟燭</strong><br>
+    • 淨重｜145g （±5g）<br>
+    • 燃燒時間｜約 28-30 小時<br>
+    • 容器｜琥珀玻璃杯＋原木蓋</p>
+  </div>
+
+  <div class="product-item-info">
+    <p><strong>精油</strong><br>
+    • 淨重｜5mL<br>
+    • 使用次數｜約 30-50 次<br>
+    • 容器｜琥珀玻璃瓶</p>
+  </div>
+  </div>
+
+  <div class="gift-guide">
+    <strong>送禮方向｜</strong>新春送禮首選，商業贈禮
+  </div>
+
+  <div class="offer">
+    <h3>香氛搭配組合</h3>
+    <p><strong>加購限定｜</strong>購買任一款香氛蠟燭，加購任一款精油，可折抵 NT$50</p>
+    <p><strong>精油探索組｜</strong>精油任選 3 款，現折 NT$50</p>
+    <small>
+      *每筆訂單優惠擇一使用，限用一次，不與其他優惠併用<br>
+      *下單時只需於 LINE 對話中留言商品組合（例如：綻放蠟燭 1 個＋日出森林精油 1 個），系統將自動帶入符合之優惠折扣
+    </small>
+  </div>
+  <button class="back-button" onclick="showCover()">返回封面</button>
+</section>
+
+<!-- 月光城堡 -->
+<section id="moon" class="product-page" style="display:none">
+  <div class="scent">
+  <button class="top-back-button" onclick="showCover()">返回封面</button>
+
+  <h1 class="scent-name">月光城堡</h1>
+  <div class="product-images">
+    <div class="product-item">
+      <img src="images/moon-candle.png" alt="月光城堡 香氛蠟燭">
+      <div class="product-price">香氛蠟燭 NT$520</div>
+    </div>
+    <div class="product-item">
+      <img src="images/moon-oil.png" alt="月光城堡 香氛精油">
+      <div class="product-price">香氛精油 NT$250</div>
+    </div>
+  </div>
+
+  <div class="scent-info">
+    <p><strong>主調｜</strong>薰衣草、洋甘菊</p>
+    <p><strong>香氛感受｜</strong>溫柔的薰衣草，搭配洋甘菊安定而柔和的氣息，陪伴情緒回到穩定、安全的狀態</p>
+    <p><strong>適合時刻｜</strong>在一天結束前，讓身心都被溫柔的安放</p>
+  </div>
+
+  <div class="product-info">
+  <h4>產品資訊</h4>
+
+  <div class="product-item-info">
+    <p><strong>香氛蠟燭</strong><br>
+    • 淨重｜145g （±5g）<br>
+    • 燃燒時間｜約 28-30 小時<br>
+    • 容器｜琥珀玻璃杯＋原木蓋</p>
+  </div>
+
+  <div class="product-item-info">
+    <p><strong>精油</strong><br>
+    • 淨重｜5mL<br>
+    • 使用次數｜約 30-50 次<br>
+    • 容器｜琥珀玻璃瓶</p>
+  </div>
+  </div>
+
+  <div class="gift-guide">
+    <strong>送禮方向｜</strong>大人小孩都適合的睡前放鬆香氣
+  </div>
+
+  <div class="offer">
+    <h3>香氛搭配組合</h3>
+    <p><strong>加購限定｜</strong>購買任一款香氛蠟燭，加購任一款精油，可折抵 NT$50</p>
+    <p><strong>精油探索組｜</strong>精油任選 3 款，現折 NT$50</p>
+    <small>
+      *每筆訂單優惠擇一使用，限用一次，不與其他優惠併用<br>
+      *下單時只需於 LINE 對話中留言商品組合（例如：綻放蠟燭 1 個＋日出森林精油 1 個），系統將自動帶入符合之優惠折扣
+    </small>
+  </div>
+  <button class="back-button" onclick="showCover()">返回封面</button>
+</section>
+
+<!-- 日出森林 -->
+<section id="grounded" class="product-page" style="display:none">
+  <div class="scent">
+  <button class="top-back-button" onclick="showCover()">返回封面</button>
+
+  <h1 class="scent-name">日出森林</h1>
+  <div class="product-images">
+    <div class="product-item">
+      <img src="images/grounded-candle.png" alt="日出森林 香氛蠟燭">
+      <div class="product-price">香氛蠟燭 NT$480</div>
+    </div>
+    <div class="product-item">
+      <img src="images/grounded-oil.png" alt="日出森林 香氛精油">
+      <div class="product-price">香氛精油 NT$220</div>
+    </div>
+  </div>
+
+  <div class="scent-info">
+    <p><strong>主調｜</strong>鼠尾草、岩蘭草</p>
+    <p><strong>香氛感受｜</strong>清新草本的鼠尾草，揉合岩蘭草深沉而安定的土壤氣息，像走進清晨的森林</p>
+    <p><strong>適合時刻｜</strong>需要專注、整理心緒的時刻</p>
+  </div>
+
+  <div class="product-info">
+  <h4>產品資訊</h4>
+
+  <div class="product-item-info">
+    <p><strong>香氛蠟燭</strong><br>
+    • 淨重｜145g （±5g）<br>
+    • 燃燒時間｜約 28-30 小時<br>
+    • 容器｜琥珀玻璃杯＋原木蓋</p>
+  </div>
+
+  <div class="product-item-info">
+    <p><strong>精油</strong><br>
+    • 淨重｜5mL<br>
+    • 使用次數｜約 30-50 次<br>
+    • 容器｜琥珀玻璃瓶</p>
+  </div>
+  </div>
+
+  <div class="gift-guide">
+    <strong>送禮方向｜</strong>適合喜歡森林氣息，或有冥想習慣的人
+  </div>
+
+  <div class="offer">
+    <h3>香氛搭配組合</h3>
+    <p><strong>加購限定｜</strong>購買任一款香氛蠟燭，加購任一款精油，可折抵 NT$50</p>
+    <p><strong>精油探索組｜</strong>精油任選 3 款，現折 NT$50</p>
+    <small>
+      *每筆訂單優惠擇一使用，限用一次，不與其他優惠併用<br>
+      *下單時只需於 LINE 對話中留言商品組合（例如：綻放蠟燭 1 個＋日出森林精油 1 個），系統將自動帶入符合之優惠折扣
+    </small>
+  </div>
+  <button class="back-button" onclick="showCover()">返回封面</button>
+</section>
+
+<!-- 無界 -->
+<section id="beyond" class="product-page" style="display:none">
+  <div class="scent">
+  <button class="top-back-button" onclick="showCover()">返回封面</button>
+
+  <h1 class="scent-name">無界</h1>
+  <div class="product-images">
+    <div class="product-item">
+      <img src="images/beyond-candle.png" alt="無界 香氛蠟燭">
+      <div class="product-price">香氛蠟燭 NT$480</div>
+    </div>
+    <div class="product-item">
+      <img src="images/beyond-oil.png" alt="無界 香氛精油">
+      <div class="product-price">香氛精油 NT$220</div>
+    </div>
+  </div>
+
+  <div class="scent-info">
+    <p><strong>主調｜</strong>雪松、黑胡椒</p>
+    <p><strong>香氛感受｜</strong>清以溫潤的雪松為基底，選用十多種精油層層調配而成，在尾韻透出微微辛辣的黑胡椒</p>
+    <p><strong>適合時刻｜</strong>在迎合外界與保持自我中取得平衡，向內思考的時刻</p>
+  </div>
+
+  <div class="product-info">
+  <h4>產品資訊</h4>
+
+  <div class="product-item-info">
+    <p><strong>香氛蠟燭</strong><br>
+    • 淨重｜145g （±5g）<br>
+    • 燃燒時間｜約 28-30 小時<br>
+    • 容器｜琥珀玻璃杯＋原木蓋</p>
+  </div>
+
+  <div class="product-item-info">
+    <p><strong>精油</strong><br>
+    • 淨重｜5mL<br>
+    • 使用次數｜約 30-50 次<br>
+    • 容器｜琥珀玻璃瓶</p>
+  </div>
+  </div>
+
+  <div class="gift-guide">
+    <strong>送禮方向｜</strong>黑胡椒控必買，適合不喜歡被定義的人
+  </div>
+
+  <div class="offer">
+    <h3>香氛搭配組合</h3>
+    <p><strong>加購限定｜</strong>購買任一款香氛蠟燭，加購任一款精油，可折抵 NT$50</p>
+    <p><strong>精油探索組｜</strong>精油任選 3 款，現折 NT$50</p>
+    <small>
+      *每筆訂單優惠擇一使用，限用一次，不與其他優惠併用<br>
+      *下單時只需於 LINE 對話中留言商品組合（例如：綻放蠟燭 1 個＋日出森林精油 1 個），系統將自動帶入符合之優惠折扣
+    </small>
+  </div>
+  <button class="back-button" onclick="showCover()">返回封面</button>
+</section>
+
+<!-- 湛藍海洋 -->
+<section id="ocean" class="product-page" style="display:none">
+  <div class="scent">
+  <button class="top-back-button" onclick="showCover()">返回封面</button>
+
+  <h1 class="scent-name">湛藍海洋</h1>
+  <div class="product-images">
+    <div class="product-item">
+      <img src="images/ocean-candle.png" alt="湛藍海洋 香氛蠟燭">
+      <div class="product-price">香氛蠟燭 NT$480</div>
+    </div>
+    <div class="product-item">
+      <img src="images/ocean-oil.png" alt="湛藍海洋 香氛精油">
+      <div class="product-price">香氛精油 NT$220</div>
+    </div>
+  </div>
+
+  <div class="scent-info">
+    <p><strong>主調｜</strong>絲柏、尤加利</p>
+    <p><strong>香氛感受｜</strong>清爽的絲柏，搭配尤加利清新而涼感的氣息，像清晨的海風，讓思緒變得開闊而清晰</p>
+    <p><strong>適合時刻｜</strong>送爸爸準沒錯，適合喜歡清透香氣的人</p>
+  </div>
+
+  <div class="product-info">
+  <h4>產品資訊</h4>
+
+  <div class="product-item-info">
+    <p><strong>香氛蠟燭</strong><br>
+    • 淨重｜145g （±5g）<br>
+    • 燃燒時間｜約 28-30 小時<br>
+    • 容器｜琥珀玻璃杯＋原木蓋</p>
+  </div>
+
+  <div class="product-item-info">
+    <p><strong>精油</strong><br>
+    • 淨重｜5mL<br>
+    • 使用次數｜約 30-50 次<br>
+    • 容器｜琥珀玻璃瓶</p>
+  </div>
+  </div>
+
+  <div class="gift-guide">
+    <strong>送禮方向｜</strong>黑胡椒控必買，適合不喜歡被定義的人
+  </div>
+
+  <div class="offer">
+    <h3>香氛搭配組合</h3>
+    <p><strong>加購限定｜</strong>購買任一款香氛蠟燭，加購任一款精油，可折抵 NT$50</p>
+    <p><strong>精油探索組｜</strong>精油任選 3 款，現折 NT$50</p>
+    <small>
+      *每筆訂單優惠擇一使用，限用一次，不與其他優惠併用<br>
+      *下單時只需於 LINE 對話中留言商品組合（例如：綻放蠟燭 1 個＋日出森林精油 1 個），系統將自動帶入符合之優惠折扣
+    </small>
+  </div>
+  <button class="back-button" onclick="showCover()">返回封面</button>
+</section>
+
+<script>
+    function showProduct(id) {
+      document.getElementById('cover').style.display = 'none';
+      document.querySelectorAll('.product-page').forEach(page => {
+        page.style.display = 'none';
+      });
+      document.getElementById(id).style.display = 'block';
+    }
+    function showCover() {
+      document.querySelectorAll('.product-page').forEach(page => {
+        page.style.display = 'none';
+      });
+      document.getElementById('cover').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
