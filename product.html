@@ -129,20 +129,20 @@
   background: #FFD8B5;
 }
 
-  /* 價目表圖片區塊 */
-.price-image {
-  margin-top: 40px;   /* 與香氣按鈕拉開距離 */
-  padding-top: 12px;  /* 視覺緩衝 */
+/* 價目表區塊 */
+.price-section {
+  margin-top: 30px; /* 與按鈕保持距離 */
   text-align: center;
 }
 
-.price-image img {
-  width: 100%;
-  max-width: 420px;          /* 手機友善，不會過寬 */
-  height: auto;
-  border-radius: 12px;       /* 與整體風格一致 */
+.price-image {
+  width: 90%;        /* 手機版自適應 */
+  max-width: 480px;  /* 桌機最大寬度 */
+  height: auto;      /* 保持比例 */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 可選，增加立體感 */
 }
-
+  
 body {
   margin: 0;
   padding: 16px;
@@ -374,8 +374,8 @@ body {
 
   </div>
 
-<div class="price-image">
-  <img src="images/price.png" alt="香氛系列價目表">
+<div class="price-section">
+  <img src="images/price.jpg" alt="價目表" class="price-image" loading="lazy">
 </div>
     
 </section>
@@ -798,6 +798,7 @@ body {
 </body>
 
 </html>
+
 
 
 
