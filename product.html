@@ -349,9 +349,9 @@ body {
   <div class="scent-buttons">
 
   <div class="scent-guide">
-  <h2 class="scent-title">選擇你的香氣風格</h2>
-  <p class="scent-hint">請點擊下方按鈕開始探索</p>
-  <div>
+    <h2 class="scent-title">選擇你的香氣風格</h2>
+    <p class="scent-hint">請點擊下方按鈕開始探索</p>
+  </div>
   
     <div class="scent-group">
       <h3>花香系</h3>
@@ -786,18 +786,21 @@ body {
         page.style.display = 'none';
       });
       document.getElementById(id).style.display = 'block';
+      window.scrollTo(0, 0);
     }
     function showCover() {
       document.querySelectorAll('.product-page').forEach(page => {
         page.style.display = 'none';
       });
       document.getElementById('cover').style.display = 'block';
+      window.scrollTo(0, 0);
     }
   </script>
 
 </body>
 
 </html>
+
 
 
 
