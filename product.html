@@ -29,23 +29,22 @@
 /* 融蠟燈區塊 */
 .melt-section {
   margin-top: 50px; /* 與按鈕保持距離 */
-  display: flex;
   text-align: center;
 }
 
 .melt-image {
+  display: block;
+  margin: 0 auto;
   width: 90%;        /* 手機版自適應 */
   max-width: 480px;  /* 桌機最大寬度 */
   height: auto;      /* 保持比例 */
   border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08); /* 可選，增加立體感 */
-  transition: transform 0.3s;
-  .melt-image:hover {
-  transform: translateY(-3px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 可選，增加立體感 */
+  transition: 0.3s; /* 平滑 hover 動畫 */
 }
   
 .melt-image:hover {
-  transition: 0.3s;
+  transform: translateY(-3px);
 }
   
 }
