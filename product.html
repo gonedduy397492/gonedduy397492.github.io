@@ -26,6 +26,20 @@
   color: #333;
 }
 
+/* 融蠟燈區塊 */
+.melt-section {
+  margin-top: 30px; /* 與按鈕保持距離 */
+  text-align: center;
+}
+
+.melt-image {
+  width: 90%;        /* 手機版自適應 */
+  max-width: 480px;  /* 桌機最大寬度 */
+  height: auto;      /* 保持比例 */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 可選，增加立體感 */
+}
+
 /* 副標題區塊 */
 .cover-subtitle-block {
   padding: 12px 16px;
@@ -128,20 +142,6 @@
 .scent-group button:hover {
   background: #FFD8B5;
 }
-
-/* 價目表區塊 */
-.price-section {
-  margin-top: 30px; /* 與按鈕保持距離 */
-  text-align: center;
-}
-
-.price-image {
-  width: 90%;        /* 手機版自適應 */
-  max-width: 480px;  /* 桌機最大寬度 */
-  height: auto;      /* 保持比例 */
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 可選，增加立體感 */
-}
   
 body {
   margin: 0;
@@ -240,7 +240,7 @@ body {
   color: #5C4B3C;
 }
 
-.offer {
+.buy-info {
   margin-top: 20px;
   padding: 16px;
   background: #f9f9f9;
@@ -248,32 +248,15 @@ body {
   border: 1px solid #e5e5e5;
 }
 
-.offer h3 {
+.buy-info h3 {
   margin: 0 0 12px;
   font-size: 17px;
   font-weight: 600;
 }
 
-.offer p {
+.buy-info p {
   margin: 8px 0;
   font-size: 14px;
-}
-
-.offer small {
-  display: block;
-  margin-top: 12px;
-  font-size: 12px;
-  color: #666;
-  line-height: 1.5;
-}
-
-.buy-info {
-  margin-top: 12px;
-  padding: 10px 12px;
-  background: #FFF4E6;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #5C4B3C;
 }
 
 .top-back-button {
@@ -343,6 +326,10 @@ body {
     <h1 class="cover-title">以自然香氣，陪伴每一個生活時刻</h1>
   </div>
 
+<div class="price-section">
+  <img src="images/melt.jpg" alt="融蠟燈" class="melt-image" loading="lazy">
+</div>
+
   <!-- 副標題區塊 -->
   <div class="cover-subtitle-block">
     全系列皆使用 <strong>植物蠟 × 純精油</strong><br>
@@ -352,7 +339,7 @@ body {
   </div>
 
 <section class="shipping-notice">
-  <p class="shipping-main">全品項滿 NT$990 超商取貨免運</p>
+  <p class="shipping-main">全品項滿 NT$490 超商取貨免運</p>
   <p class="shipping-sub">未達門檻酌收運費 NT$60</p>
 </section>
 
@@ -364,29 +351,25 @@ body {
   </div>
   
     <div class="scent-group">
-      <h3>花香系</h3>
-      <button onclick="showProduct('bloom')">綻放</button>
+      <h3>花果調</h3>
+      <button onclick="showProduct('blessings')">大吉大利</button>
       <button onclick="showProduct('rose')">玫瑰森林</button>
     </div>
 
     <div class="scent-group">
-      <h3>療癒系</h3>
-      <button onclick="showProduct('blessings')">大吉大利</button>
+      <h3>花果調(升級：寵物友善配方)</h
+      <button onclick="showProduct('bloom')">綻放</button>
       <button onclick="showProduct('moon')">月光城堡</button>
     </div>
 
     <div class="scent-group">
-      <h3>木質系</h3>
+      <h3>木質調</h3>
       <button onclick="showProduct('grounded')">日出森林</button>
       <button onclick="showProduct('beyond')">無界</button>
       <button onclick="showProduct('ocean')">湛藍海洋</button>
     </div>
 
   </div>
-
-<div class="price-section">
-  <img src="images/price.jpg" alt="價目表" class="price-image" loading="lazy">
-</div>
     
 </section>
 
@@ -399,11 +382,11 @@ body {
   <div class="product-images">
     <div class="product-item">
       <img src="images/bloom-candle.png" alt="綻放 香氛蠟燭">
-      <div class="product-price">香氛蠟燭 NT$680</div>
+      <div class="product-price">香氛蠟燭 NT$690</div>
     </div>
     <div class="product-item">
       <img src="images/bloom-oil.png" alt="綻放 香氛精油">
-      <div class="product-price">香氛精油 NT$300</div>
+      <div class="product-price">香氛精油 NT$290</div>
     </div>
   </div>
 
@@ -411,6 +394,8 @@ body {
     <p><strong>主調｜</strong>玫瑰、天竺葵</p>
     <p><strong>香氛感受｜</strong>溫柔卻不甜膩的花香，像慢慢打開的花瓣，不知不覺心變得柔軟而穩定</p>
     <p><strong>適合時刻｜</strong>需要安定情緒，想被溫柔對待的時刻</p>
+    <p><strong>寵物友善｜</strong>嚴選貓咪友善配方，讓毛小孩也能安心使用</p>
+
   </div>
 
   <div class="product-info">
@@ -426,7 +411,7 @@ body {
   <div class="product-item-info">
     <p><strong>精油</strong><br>
     • 淨重｜5mL<br>
-    • 使用次數｜約 30-50 次<br>
+    • 使用次數｜約 30 次<br>
     • 容器｜琥珀玻璃瓶</p>
   </div>
   </div>
@@ -435,17 +420,9 @@ body {
     <strong>送禮方向｜</strong>送媽媽準沒錯，溫柔又安心的花香選擇
   </div>
 
-  <div class="offer">
-    <h3>香氛搭配組合</h3>
-    <p><strong>加購限定｜</strong>購買任一款香氛蠟燭，加購任一款精油，可折抵 NT$50</p>
-    <p><strong>精油探索組｜</strong>精油任選 3 款，現折 NT$50</p>
-    <small>
-      *每筆訂單優惠擇一使用，限用一次，不與其他優惠併用<br>
-    </small>
-  </div>
-    
   <div class="buy-info">
-    <strong>下單方式｜</strong>在 LINE 留言商品組合（例如：綻放蠟燭 1 ＋日出森林精油 1 )
+    <h3>下單方式</h3>
+    <p><strong>官方LINE｜</strong>聊天中留言欲下單的商品名稱(例如：綻放蠟燭1個、綻放精油1個)，小編將在營業時間為您服務</p>
   </div>
     
   <button class="back-button" onclick="showCover()">返回封面</button>
