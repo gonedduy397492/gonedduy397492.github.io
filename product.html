@@ -134,7 +134,7 @@
   font-size: 20px;
   font-weight: 600;
   color: #5C4B3C;
-  margin-bottom: 0 0 10px;
+  margin: 0 0 10px;
 }
 
 .scent-group button {
@@ -153,6 +153,72 @@
 .scent-group button:hover {
   background: #FFD8B5;
 }
+
+
+/* 區塊間距（和香氣區分開） */
+.diffuser-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #f1e5dc;
+}
+
+/* 標題 */
+.diffuser-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #5C4B3C;
+  margin-bottom: 6px;
+}
+
+/* 副標 */
+.diffuser-subtitle {
+  font-size: 13px;
+  color: #9a8b80;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+/* 商品排列 */
+.diffuser-products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 0 16px;
+}
+
+/* 商品卡片 */
+.product-card {
+  padding: 20px 12px;
+  border-radius: 16px;
+  background: #FFF7F0;
+  color: #5C4B3C;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+}
+
+/* 商品名稱 */
+.product-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+/* 商品描述 */
+.product-desc {
+  font-size: 12px;
+  color: #9a8b80;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* hover效果 */
+.product-card:hover {
+  transform: translateY(-3px);
+  background: #FFE9D6;
+  cursor: pointer;
+}
+
   
 body {
   margin: 0;
@@ -216,7 +282,6 @@ body {
 .scent-info p {
   margin: 6px 0;
 }
-
 
 .product-info h4 {
   margin: 0 0 6px;
@@ -321,6 +386,10 @@ body {
     font-size: 15px;
   }
 
+  .diffuser-products {
+    grid-template-columns: 1fr;
+  }
+
   body {
     max-width: 480px;
     margin: 0 auto;
@@ -381,6 +450,37 @@ body {
       <button onclick="showProduct('ocean')">湛藍海洋</button>
     </div>
 
+  </div>
+
+  <div class="diffuser-section">
+
+    <h2 class="diffuser-title">生活擴香品</h2>
+    <p class="diffuser-subtitle">讓香氣融入每一個日常場景</p>
+
+      <div class="diffuser-products">
+
+      <div class="product-card" onclick="showCategory('diffuser-hanging')">
+      <div class="product-title">擴香瓶｜吊掛</div>
+      <p class="product-desc">為小空間注入自然的香氛</p>
+      </div>
+
+      <div class="product-card" onclick="showCategory('diffuser-clip')">
+      <div class="product-title">車用擴香｜夾式</div>
+      <p class="product-desc">行車中的療癒氣息</p>
+      </div>
+
+      <div class="product-card" onclick="showCategory('diffuser-wax')">
+      <div class="product-title">天然擴香磚</div>
+      <p class="product-desc">搭配喜歡的香氛精油一起使用</p>
+      </div>
+
+      <div class="product-card" onclick="showCategory('diffuser-magnet')">
+      <div class="product-title">香氛釦｜磁吸</div>
+      <p class="product-desc">外出、上班時的嗅覺防護罩</p>
+      </div>
+        
+    </div>
+    
   </div>
     
 </section>
