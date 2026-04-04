@@ -31,8 +31,8 @@ const questions = [
     {text:"D. 浪漫、溫柔、有情緒流動", result:["rose","bloom"]}
   ]},
   {q:"2.你最近比較接近哪一種生活節奏？", options:[
-    {text:"A. 很忙，很累，需要被好好安放", result:["moon"]},
-    {text:"B. 普通，但想讓生活更有儀式感", result:["rose","bloom","beyond","ocean","grounded"]},
+    {text:"A. 很忙，很累，需要被好好安放", result:["moon","grounded"]},
+    {text:"B. 普通，但想讓生活更有儀式感", result:["rose","bloom","beyond","ocean"]},
     {text:"C. 有點悶，希望轉換心情", result:["blessings"]}
   ]},
   {q:"3.如果用一個場景形容你喜歡的味道？", options:[
