@@ -1,57 +1,83 @@
-.qa-category {
-  margin-top: 28px;
-  margin-bottom: 12px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #5C4B3C;
-}
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常見問題 Q&A</title>
 
-.qa-question {
-  width: 100%;
-  text-align: left;
-  padding: 14px 16px;
-  border: none;
-  border-radius: 10px;
-  background: #FFF6EE;
-  margin-bottom: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #5C4B3C;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fffaf6;
+      margin: 0;
+      padding: 20px;
+      color: #5C4B3C;
+    }
 
-.qa-question:hover {
-  background: #FFE9D6;
-}
+    .qa-section {
+      max-width: 720px;
+      margin: auto;
+    }
 
-.qa-answer {
-  max-height: 0;
-  overflow: hidden;
-  background: #ffffff;
-  padding: 0 16px;
-  border-left: 3px solid #FFE0C7;
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
-  font-size: 14px;
-  color: #6b5b4d;
-}
+    .qa-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
 
-.qa-answer.open {
-  padding: 12px 16px;
-  max-height: 200px;
-}
+    .qa-category {
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-size: 18px;
+      font-weight: 600;
+    }
 
+    .qa-question {
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 10px;
+      background: #FFF6EE;
+      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #5C4B3C;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
+    .qa-question:hover {
+      background: #FFE9D6;
+    }
 
+    .qa-answer {
+      max-height: 0;
+      overflow: hidden;
+      background: #ffffff;
+      padding: 0 16px;
+      border-left: 3px solid #FFE0C7;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      color: #6b5b4d;
+    }
+
+    .qa-answer.open {
+      padding: 12px 16px;
+      max-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
 
 <div class="qa-section">
 
-  <h2 class="qa-title">其他香氛產品 Q&A</h2>
+  <h2 class="qa-title">常見問題 Q&A</h2>
 
   <!-- 🌿 香氛釦 -->
   <h3 class="qa-category">香氛釦</h3>
-
   <div class="qa-accordion">
     <button class="qa-question">香氛釦要怎麼使用？</button>
     <div class="qa-answer">將精油滴在內部吸附材質（棉片/擴香芯）上，再扣上外殼即可使用。</div>
@@ -68,7 +94,6 @@
 
   <!-- 🌿 吊掛瓶 -->
   <h3 class="qa-category">吊掛瓶</h3>
-
   <div class="qa-accordion">
     <button class="qa-question">吊掛瓶要怎麼使用？</button>
     <div class="qa-answer">打開內塞 → 鎖回木蓋 → 輕微倒置讓精油浸潤木蓋 → 再恢復正放即可開始擴香。</div>
@@ -85,7 +110,6 @@
 
   <!-- 🌿 車用擴香夾 -->
   <h3 class="qa-category">車用擴香夾</h3>
-
   <div class="qa-accordion">
     <button class="qa-question">車用擴香夾怎麼使用？</button>
     <div class="qa-answer">將精油滴在內部棉片，夾在冷氣出風口即可使用。</div>
@@ -102,7 +126,6 @@
 
   <!-- 🌿 擴香磚 -->
   <h3 class="qa-category">天然擴香磚</h3>
-
   <div class="qa-accordion">
     <button class="qa-question">擴香磚要怎麼使用？</button>
     <div class="qa-answer">直接滴精油在擴香磚上，放置於空間中自然揮發。</div>
@@ -117,17 +140,20 @@
     <div class="qa-answer">擴香磚屬於溫和擴散型，香氣會較自然不濃烈。</div>
   </div>
 
+  <!-- 🌿 通用 -->
+  <h3 class="qa-category">使用補充</h3>
+  <div class="qa-accordion">
+    <button class="qa-question">為什麼不同產品香味強度不一樣？</button>
+    <div class="qa-answer">因為每種擴香方式不同，例如擴香瓶為持續釋放、車用擴香夾受氣流影響、擴香磚則為自然揮發，因此香氣表現會有所差異。</div>
+  </div>
+
 </div>
-
-
-
 
 <script>
 document.querySelectorAll(".qa-question").forEach((btn) => {
   btn.addEventListener("click", () => {
     const answer = btn.nextElementSibling;
 
-    // 關閉同一區塊內其他開啟的
     const parent = btn.parentElement;
     parent.querySelectorAll(".qa-answer").forEach((item) => {
       if (item !== answer) {
@@ -135,8 +161,10 @@ document.querySelectorAll(".qa-question").forEach((btn) => {
       }
     });
 
-    // 切換目前這個
     answer.classList.toggle("open");
   });
 });
 </script>
+
+</body>
+</html>
