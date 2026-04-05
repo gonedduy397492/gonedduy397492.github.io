@@ -1,270 +1,142 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>香氛常見問答 </title>
-  <style>
-    /* 基本重置 */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+.qa-category {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #5C4B3C;
+}
 
-    body {
-      font-family: "Noto Sans TC", sans-serif;
-      background-color: #fdfaf6;
-      color: #333;
-      line-height: 1.6;
-      padding: 20px;
-    }
+.qa-question {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #FFF6EE;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #5C4B3C;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2rem;
-      color: #5a3e2b;
-    }
+.qa-question:hover {
+  background: #FFE9D6;
+}
 
-    /* 手風琴容器 */
-    .accordion {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+.qa-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 0 16px;
+  border-left: 3px solid #FFE0C7;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  color: #6b5b4d;
+}
 
-    .accordion-item {
-      background-color: #fff;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
+.qa-answer.open {
+  padding: 12px 16px;
+  max-height: 200px;
+}
 
-    .accordion-item button {
-      width: 100%;
-      padding: 18px 20px;
-      text-align: left;
-      border: none;
-      background: none;
-      font-size: 1rem;
-      cursor: pointer;
-      outline: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s;
-    }
 
-    .accordion-item button:hover {
-      background-color: #f7f2ec;
-    }
 
-    .accordion-item button::after {
-      content: '+';
-      font-size: 1.2rem;
-      transition: transform 0.3s;
-    }
 
-    .accordion-item.active button::after {
-      content: '-';
-    }
+<div class="qa-section">
 
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      padding: 0 20px;
-      transition: max-height 0.3s ease;
-      background-color: #fff8f0;
-    }
+  <h2 class="qa-title">其他香氛產品 Q&A</h2>
 
-    .accordion-content p {
-      padding: 15px 0;
-    }
-    
-    .faq-note {
-      max-width: 800px;
-      margin: 48px auto 0;
-      padding-top: 24px;
-      border-top: 1px solid #e6ded6;
-      text-align: center;
-      font-size: 0.95rem;
-      color: #6b5a4a;
-      line-height: 1.6;
-    }
-    
-  </style>
-</head>
-<body>
+  <!-- 🌿 香氛釦 -->
+  <h3 class="qa-category">香氛釦</h3>
 
-  <h1>香氛常見問答</h1>
+  <div class="qa-accordion">
+    <button class="qa-question">香氛釦要怎麼使用？</button>
+    <div class="qa-answer">將精油滴在內部吸附材質（棉片/擴香芯）上，再扣上外殼即可使用。</div>
 
-  <div class="accordion">
+    <button class="qa-question">香味可以維持多久？</button>
+    <div class="qa-answer">約 1–3 天，依環境溫度與通風狀況而有所不同。</div>
 
-    <div class="accordion-item">
-      <button>Q1｜要如何下單？</button>
-      <div class="accordion-content">
-        <p>請直接在聊天中輸入欲下單的品項，例如：「綻放精油 1 個＋無界精油 1 個＋月光城堡香氛蠟燭 1 個」。小編收到訊息後，會與您確認寄送與付款資訊，完成付款後即安排超商出貨，約 2–3 個工作天送達。若有急件或送禮需求，也歡迎事先與我們討論。
-</p>
-      </div>
-    </div>
+    <button class="qa-question">味道變淡怎麼辦？</button>
+    <div class="qa-answer">重新滴入精油即可恢復香氣。</div>
 
-    <div class="accordion-item">
-      <button>Q2｜你們的香氛蠟燭用什麼原料製作？</button>
-      <div class="accordion-content">
-        <p>我們選用大豆蠟與椰子蠟，搭配 100% 植物精油，不添加人工香精。香氣天然、溫潤，適合長時間陪伴日常。
-</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q3｜一顆蠟燭可以燃燒多久？</button>
-      <div class="accordion-content">
-        <p>約 28–30 小時。實際時間會依燃燒時長、環境溫度與空間大小略有差異。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q4｜一瓶精油可以使用幾次？</button>
-      <div class="accordion-content">
-        <p>搭配擴香機，每次使用 3–5 滴，約可使用 30–50 次。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q5｜蠟燭建議一次點燃多久？</button>
-      <div class="accordion-content">
-        <p>建議每次 1–3 小時，燃燒至整個表面蠟完全融化再熄滅。既能充分擴散香氣，也能保護燭芯與蠟質，避免出現隧道現象。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q6｜蠟燭要如何正確熄滅？</button>
-      <div class="accordion-content">
-        <p>建議使用耐熱工具輕輕將燭芯浸入蠟池後再扶正，可避免黑煙產生，也能保留香氣，或以滅燭罩熄滅。請避免直接吹熄，以免產生煙味影響香氣品質。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q7｜蠟燭使用後需要蓋上蓋子嗎？</button>
-      <div class="accordion-content">
-        <p>建議蠟燭完全冷卻後蓋上蓋子，有助於保存香氣並防止灰塵附著。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q8｜第一次使用蠟燭需要注意什麼？</button>
-      <div class="accordion-content">
-        <p>第一次點燃建議 2–3 小時，直到整個表面蠟完全融化再熄滅，可避免產生隧道現象，讓蠟燭更耐用、香氣更穩定。使用時請務必打開一點窗戶保持環境通風。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q9｜每次點蠟燭前需要修剪燭芯嗎？</button>
-      <div class="accordion-content">
-        <p>建議將燭芯修剪至 0.5–0.7 公分，可讓火焰更穩定、減少黑煙，並延長蠟燭壽命。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q10｜蠟燭外圍蠟無法融化，出現隧道現象怎麼辦？</button>
-      <div class="accordion-content">
-        <p>可以使用鋁箔紙法。將一片鋁箔紙輕輕環繞杯口上方，頂部微微向內包覆，保留中央開口讓燭芯燃燒，使熱能集中幫助蠟面均勻融化，持續燃燒約30分鐘，待表層蠟均勻融化後即可移除鋁箔紙。日後建議每次燃燒至整個表面蠟完全融化再熄滅。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q11｜蠟燭燒到一半，燭芯垂進蠟池裡熄滅了怎麼辦？</button>
-      <div class="accordion-content">
-        <p>請用乾淨的鑷子或工具將燭芯扶正並修剪至適當長度後即可再次使用。建議每次點燃前修剪燭芯，可減少燭芯過軟或傾倒的情況。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q12｜蠟燭燃燒時火焰很大怎麼辦？</button>
-      <div class="accordion-content">
-        <p>請先將蠟燭熄滅，待蠟完全冷卻後，將燭芯修剪至約 0.5–0.7 公分，再重新點燃。火焰過大通常與燭芯過長或燃燒時間過久有關，適當修剪與控制每次燃燒 1–3 小時，可讓火焰維持穩定並提升使用安全性。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q13｜蠟燭熄滅後為什麼還聞得到香味？</button>
-      <div class="accordion-content">
-        <p>天然精油會緩慢揮發，即使熄滅後，香氣仍會溫柔停留一段時間。</p>
-      </div>
-    </div>
-
-     <div class="accordion-item">
-      <button>Q14｜蠟燭冷卻後，表面有不平整的紋路正常嗎？</button>
-      <div class="accordion-content">
-        <p>是正常現象。植物蠟隨溫度變化由外而內逐漸冷卻凝固，內外凝固的時間差會產生不平整的表面或紋理，不影響使用與香氣品質。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q15｜有寵物或小孩可以使用嗎？</button>
-      <div class="accordion-content">
-        <p>我們使用天然溫和原料，使用時請務必打開一點窗戶保持通風，避免寵物或小孩靠近蠟燭火源或長時間近距離接觸。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q16｜蠟燭和精油應如何保存？</button>
-      <div class="accordion-content">
-        <p>密封後放置於陰涼乾燥、避免陽光直射的地方，可維持精油香氣與蠟燭品質。</p>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <button>Q17｜蠟燭和精油適合送禮嗎？</button>
-      <div class="accordion-content">
-        <p>很適合。蠟燭以柔和燭光與自然香氣，營造放鬆的日常時刻；精油輕巧好攜帶，能隨時為空間注入舒適氛圍。無論是送給重要的人，或犒賞自己，都是一份很貼心的日常陪伴禮物。</p>
-      </div>
-    </div>
-  
-    <div class="accordion-item">
-      <button>Q18｜可以開立統編發票嗎？</button>
-      <div class="accordion-content">
-        <p>我們為小規模營業人，依法開立免統編發票。如有需要，請於下單時一併告知抬頭/統編，將隨貨附上收據證明。</p>
-      </div>
-    </div>
-
-    <div class="faq-note">
-      若使用過程中有任何疑問，歡迎隨時與我們聯繫，<br>
-      我們很樂意陪伴您一起好好使用每一顆蠟燭。
-    </div>
-    
+    <button class="qa-question">可以用在口罩以外的地方嗎？</button>
+    <div class="qa-answer">可以，像是衣領、包包、帽子等都適合使用。</div>
   </div>
 
-  <script>
-    const items = document.querySelectorAll('.accordion-item');
+  <!-- 🌿 吊掛瓶 -->
+  <h3 class="qa-category">吊掛瓶</h3>
 
-    items.forEach(item => {
-      const button = item.querySelector('button');
-      button.addEventListener('click', () => {
-        // 若要同時只開一個，先關閉其他
-        items.forEach(i => {
-          if (i !== item) {
-            i.classList.remove('active');
-            i.querySelector('.accordion-content').style.maxHeight = null;
-          }
-        });
+  <div class="qa-accordion">
+    <button class="qa-question">吊掛瓶要怎麼使用？</button>
+    <div class="qa-answer">打開內塞 → 鎖回木蓋 → 輕微倒置讓精油浸潤木蓋 → 再恢復正放即可開始擴香。</div>
 
-        // 切換當前項目
-        item.classList.toggle('active');
-        const content = item.querySelector('.accordion-content');
-        if (item.classList.contains('active')) {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } else {
-          content.style.maxHeight = null;
-        }
-      });
+    <button class="qa-question">多久需要再倒一次？</button>
+    <div class="qa-answer">通常 3–7 天一次，依香味濃度需求調整。</div>
+
+    <button class="qa-question">可以一直倒著放嗎？</button>
+    <div class="qa-answer">不建議長時間倒置，以避免精油滲漏。</div>
+
+    <button class="qa-question">為什麼有時候不太香？</button>
+    <div class="qa-answer">可能木蓋尚未充分吸附精油，或環境較通風，建議再倒置一次即可。</div>
+  </div>
+
+  <!-- 🌿 車用擴香夾 -->
+  <h3 class="qa-category">車用擴香夾</h3>
+
+  <div class="qa-accordion">
+    <button class="qa-question">車用擴香夾怎麼使用？</button>
+    <div class="qa-answer">將精油滴在內部棉片，夾在冷氣出風口即可使用。</div>
+
+    <button class="qa-question">為什麼開冷氣時比較香？</button>
+    <div class="qa-answer">因為氣流會加速香氣擴散，是正常現象。</div>
+
+    <button class="qa-question">味道太濃怎麼辦？</button>
+    <div class="qa-answer">減少精油滴數，或暫時取下通風。</div>
+
+    <button class="qa-question">多久補一次精油？</button>
+    <div class="qa-answer">約 2–5 天補一次，依使用頻率與氣流強度而定。</div>
+  </div>
+
+  <!-- 🌿 擴香磚 -->
+  <h3 class="qa-category">天然擴香磚</h3>
+
+  <div class="qa-accordion">
+    <button class="qa-question">擴香磚要怎麼使用？</button>
+    <div class="qa-answer">直接滴精油在擴香磚上，放置於空間中自然揮發。</div>
+
+    <button class="qa-question">適合放在哪裡？</button>
+    <div class="qa-answer">書桌、床頭、衣櫃、抽屜等小空間皆適合。</div>
+
+    <button class="qa-question">多久需要補香？</button>
+    <div class="qa-answer">約 2–5 天補一次，視精油揮發速度而定。</div>
+
+    <button class="qa-question">為什麼味道比較淡？</button>
+    <div class="qa-answer">擴香磚屬於溫和擴散型，香氣會較自然不濃烈。</div>
+  </div>
+
+</div>
+
+
+
+
+<script>
+document.querySelectorAll(".qa-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const answer = btn.nextElementSibling;
+
+    // 關閉同一區塊內其他開啟的
+    const parent = btn.parentElement;
+    parent.querySelectorAll(".qa-answer").forEach((item) => {
+      if (item !== answer) {
+        item.classList.remove("open");
+      }
     });
-  </script>
 
-</body>
-
-</html>
-
-
+    // 切換目前這個
+    answer.classList.toggle("open");
+  });
+});
+</script>
