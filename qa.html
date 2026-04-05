@@ -1,167 +1,240 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>常見問題 Q&A</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>常見問題 Q&A</title>
 
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #fffaf6;
-      margin: 0;
-      padding: 20px;
-      color: #5C4B3C;
-    }
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #fffaf6;
+  margin: 0;
+  padding: 24px;
+  color: #5C4B3C;
+}
 
-    .qa-section {
-      max-width: 720px;
-      margin: auto;
-    }
+.qa-section {
+  max-width: 720px;
+  margin: auto;
+}
 
-    .qa-title {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 24px;
-    }
+.qa-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
 
-    .qa-category {
-      margin-top: 28px;
-      margin-bottom: 12px;
-      font-size: 18px;
-      font-weight: 600;
-    }
+/* 分類標題 */
+.qa-category {
+  margin-top: 36px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
 
-    .qa-question {
-      width: 100%;
-      text-align: left;
-      padding: 14px 16px;
-      border: none;
-      border-radius: 10px;
-      background: #FFF6EE;
-      margin-bottom: 8px;
-      font-size: 15px;
-      font-weight: 500;
-      color: #5C4B3C;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+/* 問題按鈕 */
+.qa-question {
+  width: 100%;
+  text-align: left;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #FFF6EE;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #5C4B3C;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s ease;
+}
 
-    .qa-question:hover {
-      background: #FFE9D6;
-    }
+.qa-question:hover {
+  background: #FFE9D6;
+}
 
-    .qa-answer {
-      max-height: 0;
-      overflow: hidden;
-      background: #ffffff;
-      padding: 0 16px;
-      border-left: 3px solid #FFE0C7;
-      margin-bottom: 10px;
-      transition: all 0.3s ease;
-      font-size: 14px;
-      color: #6b5b4d;
-    }
+/* icon */
+.qa-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
 
-    .qa-answer.open {
-      padding: 12px 16px;
-      max-height: 200px;
-    }
-  </style>
+.qa-question.active .qa-icon {
+  transform: rotate(45deg); /* + 變 × */
+}
+
+/* 答案 */
+.qa-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border-left: 3px solid #FFE0C7;
+  margin-bottom: 12px;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+.qa-answer-content {
+  padding: 0 16px 16px;
+  font-size: 14px;
+  color: #6b5b4d;
+  line-height: 1.6;
+}
+
+.qa-answer.open {
+  max-height: 300px;
+  opacity: 1;
+}
+</style>
 </head>
 
 <body>
 
 <div class="qa-section">
 
-  <h2 class="qa-title">常見問題 Q&A</h2>
+<h2 class="qa-title">常見問題 Q&A</h2>
 
-  <!-- 🌿 香氛釦 -->
-  <h3 class="qa-category">香氛釦</h3>
-  <div class="qa-accordion">
-    <button class="qa-question">香氛釦要怎麼使用？</button>
-    <div class="qa-answer">將精油滴在內部吸附材質（棉片/擴香芯）上，再扣上外殼即可使用。</div>
+<!-- 🌿 香氛釦 -->
+<h3 class="qa-category">香氛釦</h3>
+<div class="qa-accordion">
 
-    <button class="qa-question">香味可以維持多久？</button>
-    <div class="qa-answer">約 1–3 天，依環境溫度與通風狀況而有所不同。</div>
-
-    <button class="qa-question">味道變淡怎麼辦？</button>
-    <div class="qa-answer">重新滴入精油即可恢復香氣。</div>
-
-    <button class="qa-question">可以用在口罩以外的地方嗎？</button>
-    <div class="qa-answer">可以，像是衣領、包包、帽子等都適合使用。</div>
+  <button class="qa-question active">
+    香氛釦要怎麼使用？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer open">
+    <div class="qa-answer-content">
+      將精油滴在內部吸附材質（棉片/擴香芯）上，再扣上外殼即可使用。
+    </div>
   </div>
 
-  <!-- 🌿 吊掛瓶 -->
-  <h3 class="qa-category">吊掛瓶</h3>
-  <div class="qa-accordion">
-    <button class="qa-question">吊掛瓶要怎麼使用？</button>
-    <div class="qa-answer">打開內塞 → 鎖回木蓋 → 輕微倒置讓精油浸潤木蓋 → 再恢復正放即可開始擴香。</div>
-
-    <button class="qa-question">多久需要再倒一次？</button>
-    <div class="qa-answer">通常 3–7 天一次，依香味濃度需求調整。</div>
-
-    <button class="qa-question">可以一直倒著放嗎？</button>
-    <div class="qa-answer">不建議長時間倒置，以避免精油滲漏。</div>
-
-    <button class="qa-question">為什麼有時候不太香？</button>
-    <div class="qa-answer">可能木蓋尚未充分吸附精油，或環境較通風，建議再倒置一次即可。</div>
+  <button class="qa-question">
+    香味可以維持多久？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer">
+    <div class="qa-answer-content">
+      約 1–3 天，依環境溫度與通風狀況而有所不同。
+    </div>
   </div>
 
-  <!-- 🌿 車用擴香夾 -->
-  <h3 class="qa-category">車用擴香夾</h3>
-  <div class="qa-accordion">
-    <button class="qa-question">車用擴香夾怎麼使用？</button>
-    <div class="qa-answer">將精油滴在內部棉片，夾在冷氣出風口即可使用。</div>
-
-    <button class="qa-question">為什麼開冷氣時比較香？</button>
-    <div class="qa-answer">因為氣流會加速香氣擴散，是正常現象。</div>
-
-    <button class="qa-question">味道太濃怎麼辦？</button>
-    <div class="qa-answer">減少精油滴數，或暫時取下通風。</div>
-
-    <button class="qa-question">多久補一次精油？</button>
-    <div class="qa-answer">約 2–5 天補一次，依使用頻率與氣流強度而定。</div>
-  </div>
-
-  <!-- 🌿 擴香磚 -->
-  <h3 class="qa-category">天然擴香磚</h3>
-  <div class="qa-accordion">
-    <button class="qa-question">擴香磚要怎麼使用？</button>
-    <div class="qa-answer">直接滴精油在擴香磚上，放置於空間中自然揮發。</div>
-
-    <button class="qa-question">適合放在哪裡？</button>
-    <div class="qa-answer">書桌、床頭、衣櫃、抽屜等小空間皆適合。</div>
-
-    <button class="qa-question">多久需要補香？</button>
-    <div class="qa-answer">約 2–5 天補一次，視精油揮發速度而定。</div>
-
-    <button class="qa-question">為什麼味道比較淡？</button>
-    <div class="qa-answer">擴香磚屬於溫和擴散型，香氣會較自然不濃烈。</div>
-  </div>
-
-  <!-- 🌿 通用 -->
-  <h3 class="qa-category">使用補充</h3>
-  <div class="qa-accordion">
-    <button class="qa-question">為什麼不同產品香味強度不一樣？</button>
-    <div class="qa-answer">因為每種擴香方式不同，例如擴香瓶為持續釋放、車用擴香夾受氣流影響、擴香磚則為自然揮發，因此香氣表現會有所差異。</div>
+  <button class="qa-question">
+    味道變淡怎麼辦？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer">
+    <div class="qa-answer-content">
+      重新滴入精油即可恢復香氣。
+    </div>
   </div>
 
 </div>
 
+<!-- 🌿 吊掛瓶 -->
+<h3 class="qa-category">吊掛瓶</h3>
+<div class="qa-accordion">
+
+  <button class="qa-question active">
+    吊掛瓶要怎麼使用？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer open">
+    <div class="qa-answer-content">
+      打開內塞 → 鎖回木蓋 → 輕微倒置讓精油浸潤木蓋 → 再恢復正放即可開始擴香。
+    </div>
+  </div>
+
+  <button class="qa-question">
+    多久需要再倒一次？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer">
+    <div class="qa-answer-content">
+      通常 3–7 天一次，依香味濃度需求調整。
+    </div>
+  </div>
+
+</div>
+
+<!-- 🌿 車用擴香夾 -->
+<h3 class="qa-category">車用擴香夾</h3>
+<div class="qa-accordion">
+
+  <button class="qa-question active">
+    車用擴香夾怎麼使用？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer open">
+    <div class="qa-answer-content">
+      將精油滴在內部棉片，夾在冷氣出風口即可使用。
+    </div>
+  </div>
+
+  <button class="qa-question">
+    為什麼開冷氣時比較香？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer">
+    <div class="qa-answer-content">
+      因為氣流會加速香氣擴散，是正常現象。
+    </div>
+  </div>
+
+</div>
+
+<!-- 🌿 擴香磚 -->
+<h3 class="qa-category">天然擴香磚</h3>
+<div class="qa-accordion">
+
+  <button class="qa-question active">
+    擴香磚要怎麼使用？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer open">
+    <div class="qa-answer-content">
+      直接滴精油在擴香磚上，放置於空間中自然揮發。
+    </div>
+  </div>
+
+  <button class="qa-question">
+    為什麼味道比較淡？
+    <span class="qa-icon">＋</span>
+  </button>
+  <div class="qa-answer">
+    <div class="qa-answer-content">
+      擴香磚屬於溫和擴散型，香氣會較自然不濃烈。
+    </div>
+  </div>
+
+</div>
+
+</div>
+
 <script>
-document.querySelectorAll(".qa-question").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const answer = btn.nextElementSibling;
+document.querySelectorAll(".qa-accordion").forEach(section => {
+  const questions = section.querySelectorAll(".qa-question");
 
-    const parent = btn.parentElement;
-    parent.querySelectorAll(".qa-answer").forEach((item) => {
-      if (item !== answer) {
-        item.classList.remove("open");
-      }
+  questions.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const answer = btn.nextElementSibling;
+
+      // 關閉同區塊其他
+      section.querySelectorAll(".qa-answer").forEach(a => {
+        if (a !== answer) a.classList.remove("open");
+      });
+
+      section.querySelectorAll(".qa-question").forEach(q => {
+        if (q !== btn) q.classList.remove("active");
+      });
+
+      // 切換當前
+      answer.classList.toggle("open");
+      btn.classList.toggle("active");
     });
-
-    answer.classList.toggle("open");
   });
 });
 </script>
